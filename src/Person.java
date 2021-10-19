@@ -18,6 +18,6 @@ public class Person {
   public void printDetails() {
     System.out.println("Name: " + name);
     System.out.println("Email: " + email);
-    System.out.println("Telephone: " + name);
+    System.out.println("Telephone: " + telephone);
   }
 }
