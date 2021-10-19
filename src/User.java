@@ -140,8 +140,6 @@ public class User {
       details.put(property, value);
     }
 
-    System.out.println(details);
-
     // Return hash map
     return details;
   }
