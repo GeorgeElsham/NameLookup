@@ -2,7 +2,17 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * User calling the queries.
+ */
 public class User {
+
+  /**
+   * Query for username. Searches for the exact username.
+   *
+   * @param username Username to query.
+   * @return Returns person if found, null otherwise.
+   */
   public Person query(String username) {
     // Get HTML page code for given user
     final List<String> html = getHtmlForUser(username);
@@ -20,6 +30,12 @@ public class User {
     return personFromDetails(details);
   }
 
+  /**
+   * Gets entire HTML page for user.
+   *
+   * @param username Username to get page of.
+   * @return List of every line of the HTML.
+   */
   private List<String> getHtmlForUser(String username) {
     try {
       // Construct URL
@@ -53,6 +69,12 @@ public class User {
     }
   }
 
+  /**
+   * Gets individual HTML lines.
+   *
+   * @param html HTML split by new lines.
+   * @return Lines split by HTML tags.
+   */
   private String[] linesFromHtml(List<String> html) {
     // Make sure HTML is not null
     if (html == null) {
@@ -88,6 +110,12 @@ public class User {
     }
   }
 
+  /**
+   * Get properties and their values. These are the details about a person.
+   *
+   * @param lines Lines for each HTML tag.
+   * @return Get the details for each property.
+   */
   private Map<String, String> getDetails(String[] lines) {
     // Create hash map to link properties to values
     Map<String, String> details = new HashMap<>();
@@ -112,10 +140,18 @@ public class User {
       details.put(property, value);
     }
 
+    System.out.println(details);
+
     // Return hash map
     return details;
   }
 
+  /**
+   * Create a person from the details found.
+   *
+   * @param details Dictionary of all the details.
+   * @return Person object.
+   */
   private Person personFromDetails(Map<String, String> details) {
     final String name = details.get("name");
     final String email = details.get("email");

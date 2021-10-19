@@ -1,3 +1,6 @@
+/**
+ * Object representing a person who is publicly visible.
+ */
 public class Person {
   public String name;
   public String email;
@@ -9,6 +12,9 @@ public class Person {
     this.telephone = telephone;
   }
 
+  /**
+   * Prints information about a person to the console.
+   */
   public void printDetails() {
     System.out.println("Name: " + name);
     System.out.println("Email: " + email);
