@@ -18,6 +18,9 @@ public class Person {
   public void printDetails() {
     System.out.println("Name: " + name);
     System.out.println("Email: " + email);
-    System.out.println("Telephone: " + telephone);
+
+    if (telephone != null) {
+      System.out.println("Telephone: " + telephone);
+    }
   }
 }
